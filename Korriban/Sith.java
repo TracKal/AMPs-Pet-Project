@@ -8,5 +8,13 @@ public class Sith {
 	int health = 80;
 	int attack = ran.nextInt(10) + 1;
 	int savageStrike = ran.nextInt(30) + 10;
-	int currentHealth; ;
+	int currentHealth; 
+	
+	public int attack() {
+		return attack;
+	}
+	
+	public int savageStrike() {
+		return savageStrike();
+	}
 }

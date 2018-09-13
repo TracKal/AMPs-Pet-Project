@@ -15,5 +15,12 @@ public class DarkJedi {
 	int attack = ran.nextInt(8) + 1;
 	int forcePush = ran.nextInt(25) + 10;
 	int currentHealth;
+	
+	public int attack() {
+		return attack;
+	}
+	
+	public int forcePush() {
+		return forcePush;
+	}
 }
-  
