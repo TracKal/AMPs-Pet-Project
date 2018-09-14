@@ -13,10 +13,10 @@ public class GameLogic {
 				 "and the Dark Jedi with their abilities as god-like beings.  ");
 		
 		 p("\n\nFallen Knight Health : " + FallenKnight.health +
-			 	"\nFallen Knight attacks dealing : " + FallenKnight.attack);
+			 	"\nFallen Knight attacks dealing : " + FallenKnight.attack(ManassiWarrior));
 											
-	  p("\nManassi Warrior Health : " + ManassiWarrior.health +
-			 	"\nManassi Warrior attacks dealing : " + ManassiWarrior.attack);
+	  p("\nManassi Warrior Health is : " + ManassiWarrior.setHealth()
+	    + "\nManassi Warrior attacks dealing : " + ManassiWarrior.attack(FallenKnight));
 											
 	 	p("------------------------------------------------------------");
 		 return;
@@ -25,26 +25,11 @@ public class GameLogic {
 	 public void Round1() {
 		
 		  p("-----------------------------------------------------------");
-		
-		  FallenKnight.currentHealth = FallenKnight.health - ManassiWarrior.attack;          
+		         
 	  	p("\nFallen Knight's new health : " + FallenKnight.currentHealth);  
 		                                                                                   
-		  ManassiWarrior.currentHealth = ManassiWarrior.health - FallenKnight.attack;        
+		         
 	   p("\nManassi Warrior's new health : " + ManassiWarrior.currentHealth);
-		                                                                                    
-		  p("------------------------------------------------------------");
-		
-		  p("\nFallen Knight uses Force Push : " + FallenKnight.forcePush);
-		
-		  p("\nManassi Warrior uses Savage Strike : " + ManassiWarrior.savageStrike);
-		
-		  p("------------------------------------------------------------");
-		
-		  FallenKnight.currentHealth = FallenKnight.currentHealth - ManassiWarrior.savageStrike;
-		  p("\nFallen Knight's new health : " + FallenKnight.currentHealth);
-		
-	  	ManassiWarrior.currentHealth = ManassiWarrior.currentHealth - FallenKnight.forcePush;
-		  p("\nManassi Warrior's new health : " + ManassiWarrior.currentHealth);
 		  return;
 	 }
 	 static void p(String l) {

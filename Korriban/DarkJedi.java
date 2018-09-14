@@ -12,24 +12,25 @@ import java.util.Random;
 public class DarkJedi {
 	Random ran = new Random();
 	int health = 80;
-	int attack = ran.nextInt(8) + 1;
+	
 	int forcePush = ran.nextInt(25) + 10;
 	int currentHealth;
 	boolean isDead;
 	
 	public int attack(Sith manassiWarrior) {
-		return attack = takeDamage(attack);
+	  int attack = ran.nextInt(8) + 1;
+	  if (manassiWarrior.health > attack) {
+	    manassiWarrior.currentHealth = manassiWarrior.health - attack;
+	    isDead = true;
+	  } else {
+	    health -= attack;
+	  }
+	  return attack;
 	}
 	
-	public int takeDamage(int damage) {
-		if ( health - damage <= 0) {
-			health = 0;
-			isDead = true;
-		} else {
-			health -= damage;
-		}
-		return damage;
-	}
+ public int setHealth() {
+   return health = 80;
+ }
 	
 	public boolean isDead() {
 		return isDead;
