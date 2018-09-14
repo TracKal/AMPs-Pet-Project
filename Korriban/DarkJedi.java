@@ -15,12 +15,31 @@ public class DarkJedi {
 	int attack = ran.nextInt(8) + 1;
 	int forcePush = ran.nextInt(25) + 10;
 	int currentHealth;
+	boolean isDead;
 	
-	public int attack() {
-		return attack;
+	public int attack(Sith manassiWarrior) {
+		return attack = takeDamage(attack);
+	}
+	
+	public int takeDamage(int damage) {
+		if ( health - damage <= 0) {
+			health = 0;
+			isDead = true;
+		} else {
+			health -= damage;
+		}
+		return damage;
+	}
+	
+	public boolean isDead() {
+		return isDead;
 	}
 	
 	public int forcePush() {
 		return forcePush;
+	}
+	
+	public boolean isAlive() {
+		return health > 0;
 	}
 }

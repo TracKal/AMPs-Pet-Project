@@ -8,9 +8,6 @@ public class Arena {
 		GameLogic gl = new GameLogic();
 		
 		gl.Intro();
-		
 		gl.Round1();
-		
-		gl.Round2();
 	}
 }
