@@ -19,12 +19,12 @@ public class DarkJedi {
 	int defense = 80;
 	int currentHealth;
 	boolean isDead;
-    
-	/* *
-	 *  Sith's basic attack.
-	 *  lines 28 through 30 is a critical if one hits 9.
+
+	/*
+	 * Sith's basic attack. 
+	 * lines 28 through 30 is a critical if one hits 9.
 	 */
-	
+
 	public int attack(Sith manassiWarrior) {
 		int attack = ran.nextInt(9) + 1;
 		int r = ran.nextInt(10);
@@ -38,10 +38,10 @@ public class DarkJedi {
 		}
 		return attack;
 	}
-	
+
 	/**
-	 *  Force Push is a offensive attack that Dark Jedi knows, from their past 
-	 *  jedi training.
+	 * Force Push is a offensive attack that Dark Jedi knows, from their past jedi
+	 * training.
 	 */
 	public int forcePush(Sith manassiWarrior) {
 		int forcePush = ran.nextInt(25) + 15;
@@ -55,9 +55,10 @@ public class DarkJedi {
 		}
 		return forcePush;
 	}
-	
+
 	/**
-	 * Combustion is a pyrokenises move that has affiliation with both light and dark side users.
+	 * Combustion is a pyrokenises move that has affiliation with both light and
+	 * dark side users.
 	 */
 	public int combustion(Sith manassiWarrior) {
 		int combustion = ran.nextInt(30) + 10;
@@ -70,7 +71,7 @@ public class DarkJedi {
 		}
 		return combustion;
 	}
-	
+
 	public int setHealth() {
 		return health = 80;
 	}

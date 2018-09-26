@@ -8,5 +8,6 @@ public class Arena {
 
 		gl.Intro();
 		gl.Round1();
+		gl.FinalResults();
 	}
 }
