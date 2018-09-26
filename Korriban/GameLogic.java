@@ -36,24 +36,27 @@ public class GameLogic {
 		
 		p("\nManassi Warrior current health : " + ManassiWarrior.currentHealth);
 		
-		p("\nFallen Knight attacks using force push: " + FallenKnight.forcePush(ManassiWarrior));
+		p("\nFallen Knight uses  Force Push : " + FallenKnight.forcePush(ManassiWarrior));
 		
-		p("\nManassi Warrior attacks using savage strike : " + ManassiWarrior.savageStrike(FallenKnight));
+		p("\nManassi Warrior uses Savage Strike : " + ManassiWarrior.savageStrike(FallenKnight));
 		
-		p("----------------------------------------------------------");
+		p("-----------------------------------------------------------");
 		
 		p("\nFallen Knight current health : " + FallenKnight.currentHealth);
 		
-		p("\nManassi Warrior current health : " + ManassiWarrior.setCurrentHealth());
+		p("\nManassi Warrior current health : " + ManassiWarrior.currentHealth);
 		
-		p("\nFallen Knight attacks using combustion : " + FallenKnight.combustion(ManassiWarrior));
+		p("\nFallen Knight uses Combusiton : " + FallenKnight.combustion(ManassiWarrior));
 		
-		p("\nManassi Warrior attacks using force Scream : " + ManassiWarrior.forceScream(FallenKnight));
+		p("\nManassi Warrior uses Force Scream : " + ManassiWarrior.forceScream(FallenKnight));
 		
-		p("----------------------------------------------------------");
+		p("------------------------------------------------------------");
 		
-		p("\nFallen Knight current Health : " + FallenKnight.currentHealth);
-		p("\nManass warrior current Health : " + ManassiWarrior.currentHealth);
+		p("\nFallen Knight current health : " + FallenKnight.currentHealth);
+		
+		p("\nManassi Warrior current health : " + ManassiWarrior.currentHealth);
+		
+		
 		return;
 	}
 
