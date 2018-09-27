@@ -1,11 +1,14 @@
 package Korriban;
 
-public class GameLogic {
+import java.util.Scanner;
 
+public class GameLogic {
+	Scanner in = new Scanner(System.in);
 	DarkJedi FallenKnight = new DarkJedi();
 	Sith ManassiWarrior = new Sith();
 
-	public void Intro() {
+	public void Intro() throws java.io.IOException {
+
 		p("This game is based on the Star wars legends universe. This is an unofficial game, and is not recognized by Disney.\r\n"
 				+ "\r\n"
 				+ "   6,900 years Before the Battle of Yavin. The Dark Jedi have been at war with the Jedi and the Galactic republic, which\r\n"
@@ -13,60 +16,26 @@ public class GameLogic {
 				+ "have found a planet that they think is ripe for the picking. The dark jedi have found that the sith worshiped the Dark Jedi's \r\n"
 				+ "and the Dark Jedi with their abilities as god-like beings.  ");
 
-		p("\n\nFallen Knight Health : " + FallenKnight.setHealth() + "\nFallen Knight attacks dealing : ");
+		System.out.println("\nChoose warrior: ");
+		System.out.println("   1:  Fallen Knight");
+		System.out.println("   2:  Manassi Warrior");
+		System.out.print("Choose : ");
 
-		p("\nManassi Warrior Health is : " + ManassiWarrior.setHealth() + "\nManassi Warrior attacks dealing : ");
-
-		p("------------------------------------------------------------");
-		return;
-	}
-
-	public void Round1() {
-
-		for (int i = 0; i < 2; i++) {
-
-			p("\nFallen Knight attacks Manassi Warrior for " + FallenKnight.attack(ManassiWarrior) + " damage.");
-
-			p("\nManassi Warrior current health is now : " + ManassiWarrior.currentHealth);
-
-			p("------------------------------------------------------------");
-
-			p("\nThe Manassi Warrior shrugs off the attack. He run's toward the Dark Jedi and deals a Savage Strike that does "
-					+ ManassiWarrior.savageStrike(FallenKnight) + " damage.");
-
-			p("\nThe Fallen Knight's vision starts to turn red. As the blood flows from a wound on the head. Fallen Knight's health is now  "
-					+ FallenKnight.currentHealth);
-
-			p("------------------------------------------------------------");
-
-			p("\nAs the Fallen Knight tries to regain his focus. \nThe Manassi Warrior attacks dealing "
-					+ ManassiWarrior.attack(FallenKnight) + " damage.");
-
-			p("\nThe Fallen Knight's current health is now " + FallenKnight.currentHealth
-					+ "\nThe Fallen Knight gathers his rage and uses his rage to boost his force push ability dealing "
-					+ FallenKnight.forcePush(ManassiWarrior) + " damage.");
-
-			p("-----------------------------------------------------------");
-
-			p("\nThe Manassi Warrior howl's in pain as a tree branch impaling his shoulder blade. \nThe Manassi Warrior's current health is now "
-					+ ManassiWarrior.currentHealth + ".");
-
-			p("\nThe Manassi Warrior gathers the dark energy that flows through him and lets out a ferocius Scream using the force dealing "
-					+ ManassiWarrior.forceScream(FallenKnight) + " damage.");
-
-			p("------------------------------------------------------------");
-
-			p("\nThe Dark Jedi embraces the shear might of the Force Scream leaving his health at "
-					+ FallenKnight.currentHealth
-					+ "\nIn a last chance effort the Fallen Knight sets the Manassi's arm on fire using Combustion which deales "
-					+ FallenKnight.combustion(ManassiWarrior) + " damage");
-
-			p("\nThe Manassi Warrior's health is now " + ManassiWarrior.currentHealth);
-
-			p("------------------------------------------------------------");
-
+		char choice = in.next().charAt(0);
+		switch (choice) {
+		case '1':
+			System.out.println("\nFallen Knight.");
+			System.out.println(
+					"Fallen Knight -  are Dark Jedi that have fallen from balance of the force and focus on the dark side of the force\r\n"
+							+ "emotions to effect them. They were exiled from the galaxy by the jedi that they turned on. ");
+			System.out.println("\nFallen Knight's health is set to : " + FallenKnight.health);
+			
+		case '2':
+			System.out.println("\nManassi Warrior. ");
+			System.out.println("Sith, aka Sith purebloods, humanoids who were born highly strong in the dark\r\n"
+					+ "side of the force. They were eventually overtaken by The Dark Jedi exiles. ");
+			break;
 		}
-		return;
 	}
 
 	public void FinalResults() {
