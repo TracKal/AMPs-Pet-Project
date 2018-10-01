@@ -68,6 +68,9 @@ public class DarkJedi {
 		if (manassiWarrior.setCurrentHealth() > combustion) {
 			manassiWarrior.currentHealth = manassiWarrior.currentHealth - combustion;
 			isDead = true;
+		} else if(manassiWarrior.health > combustion) {
+			manassiWarrior.currentHealth = manassiWarrior.health - combustion;
+			isDead = true;
 		}
 		return combustion;
 	}

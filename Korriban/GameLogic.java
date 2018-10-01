@@ -7,7 +7,7 @@ public class GameLogic {
 	DarkJedi FallenKnight = new DarkJedi();
 	Sith ManassiWarrior = new Sith();
 
-	public void Intro() throws java.io.IOException {
+	public void Round1() throws java.io.IOException {
 
 		p("This game is based on the Star wars legends universe. This is an unofficial game, and is not recognized by Disney.\r\n"
 				+ "\r\n"
@@ -16,40 +16,107 @@ public class GameLogic {
 				+ "have found a planet that they think is ripe for the picking. The dark jedi have found that the sith worshiped the Dark Jedi's \r\n"
 				+ "and the Dark Jedi with their abilities as god-like beings.  ");
 
-		System.out.println("\nChoose warrior: ");
-		System.out.println("   1:  Fallen Knight");
-		System.out.println("   2:  Manassi Warrior");
-		System.out.print("Choose : ");
+		System.out.println("\nFallen Knight health set to " + FallenKnight.health + " hp.");
+		System.out.println("\nManassi Warrior health set to " + ManassiWarrior.health + " hp.");
+
+		System.out.println("\nFallen Knight is now chosen ");
+		System.out.print("Skills that can be chosen. ");
+		System.out.println("\n   1. Slash ");
+		System.out.println("   2. Force Push");
+		System.out.println("   3. Combustion");
+		System.out.print("Choose attack: ");
 
 		char choice = in.next().charAt(0);
 		switch (choice) {
 		case '1':
-			System.out.println("\nFallen Knight.");
-			System.out.println(
-					"Fallen Knight -  are Dark Jedi that have fallen from balance of the force and focus on the dark side of the force\r\n"
-							+ "emotions to effect them. They were exiled from the galaxy by the jedi that they turned on. ");
-			System.out.println("\nFallen Knight's health is set to : " + FallenKnight.health);
-			
+			System.out.println("Fallen Knight uses slash dealing " + FallenKnight.attack(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
+			break;
 		case '2':
-			System.out.println("\nManassi Warrior. ");
-			System.out.println("Sith, aka Sith purebloods, humanoids who were born highly strong in the dark\r\n"
-					+ "side of the force. They were eventually overtaken by The Dark Jedi exiles. ");
+			System.out.println("Fallen Knight uses force push " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
+			break;
+		case '3':
+			System.out.println("Fallen Knight uses Combustion " + FallenKnight.combustion(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
 			break;
 		}
+		System.out.println("\nManassi Warrior uses stab dealing " + ManassiWarrior.attack(FallenKnight) + " damage.");
+		System.out.println("\nFallen Knights health is now " + FallenKnight.currentHealth);
+		return;
+	}
+
+	public void Round2() {
+
+		System.out.println("\nFallen Knight is now chosen ");
+		System.out.print("Skills that can be chosen. ");
+		System.out.println("\n   1. Slash ");
+		System.out.println("   2. Force Push");
+		System.out.println("   3. Combustion");
+		System.out.print("Choose attack: ");
+
+		char choice = in.next().charAt(0);
+		switch (choice) {
+		case '1':
+			System.out.println("Fallen Knight uses slash dealing " + FallenKnight.attack(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.setCurrentHealth());
+			break;
+		case '2':
+			System.out.println("Fallen Knight uses force push " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
+			break;
+		case '3':
+			System.out.println("Fallen Knight uses Combustion " + FallenKnight.combustion(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
+			break;
+		}
+		System.out.println(
+				"\nManassi Warrior uses Savage Strike dealing " + ManassiWarrior.savageStrike(FallenKnight) + " damage.");
+		System.out.println("\nFallen Knights health is now " + FallenKnight.currentHealth);
+		return;
+	}
+
+	public void FinalRound() {
+
+		System.out.println("\nFallen Knight is now chosen ");
+		System.out.print("Skills that can be chosen. ");
+		System.out.println("\n   1. Slash ");
+		System.out.println("   2. Force Push");
+		System.out.println("   3. Combustion");
+		System.out.print("Choose attack: ");
+
+		char choice = in.next().charAt(0);
+		switch (choice) {
+		case '1':
+			System.out.println("Fallen Knight uses slash dealing " + FallenKnight.attack(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.setCurrentHealth());
+			break;
+		case '2':
+			System.out.println("Fallen Knight uses force push " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.setCurrentHealth());
+			break;
+		case '3':
+			System.out.println("Fallen Knight uses Combustion " + FallenKnight.combustion(ManassiWarrior) + " damage.");
+			System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
+			break;
+		}
+		System.out.println(
+				"\nManassi Warrior uses Force Scream dealing " + ManassiWarrior.forceScream(FallenKnight) + " damage.");
+		System.out.println("\nFallen Knights health is now " + FallenKnight.currentHealth);
+		return;
 	}
 
 	public void FinalResults() {
 
 		if (FallenKnight.currentHealth <= 20) {
-			p("Fallen Knight's health is now " + FallenKnight.currentHealth + "\nFallen Knight is near death");
+			p("\nFallen Knight's health is now " + FallenKnight.currentHealth + "\nFallen Knight is near death");
 		} else if (FallenKnight.currentHealth >= 20) {
-			p("Fallen Knight's health is now " + FallenKnight.currentHealth
+			p("\nFallen Knight's health is now " + FallenKnight.currentHealth
 					+ "\nFallen Knight survived to fight another day.");
 		}
 
 		if (ManassiWarrior.currentHealth <= 20) {
-			p("\nManassi Warrior's current Health is " + ManassiWarrior.currentHealth
-					+ "\nManassi Warrior is near death");
+			p("\nManassi Warrior's current Health is " + ManassiWarrior.currentHealth + "\nManassi Warrior is near death");
 		} else if (ManassiWarrior.currentHealth >= 20) {
 			p("\nManassi Warrior's current Health is " + ManassiWarrior.currentHealth
 					+ "\nManassi Warrior survived to fight another day.");
