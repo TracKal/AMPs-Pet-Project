@@ -9,8 +9,6 @@ public class Arena {
 		GameLogic gl = new GameLogic();
 
 		gl.Round1();
-		gl.Round2();
-		gl.FinalRound();
 		gl.FinalResults();
 	}
 }
