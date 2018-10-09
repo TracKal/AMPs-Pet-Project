@@ -4,11 +4,11 @@ import java.io.IOException;
 
 public class Arena {
 
-	public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
 
-		GameLogic gl = new GameLogic();
+    GameLogic gl = new GameLogic();
 
-		gl.Round1();
-		gl.FinalResults();
-	}
+    gl.Intro();
+    gl.fight();
+  }
 }

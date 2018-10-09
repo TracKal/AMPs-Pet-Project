@@ -26,9 +26,8 @@ public class GameLogic {
 
   public void fight() {
 
-    for (int i = 0; i <= 5; i++) {
-      p("\nFallen Knight is now chosen ");
-      p("Skills that can be chosen. ");
+    do {
+      p("\nSkills that can be chosen. ");
       p("\n   1. Slash ");
       p("   2. Force Push");
       p("   3. Combustion");
@@ -39,25 +38,18 @@ public class GameLogic {
       switch (choice) {
         case '1':
           p("\nFallen Knight uses slash dealing " + FallenKnight.attack(ManassiWarrior) + " damage.");
-          p("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
+          p("\nManassi Warriors health is now " + ManassiWarrior.getCurrentHealth());
           break;
         case '2':
-          p("Fallen Knight uses force push " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
-          p("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
-          break;
-        case '3':
-          p("Fallen Knight uses Combustion " + FallenKnight.combustion(ManassiWarrior) + " damage.");
-          p("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
+          p("\nFallen Knight uses Force Push dealing " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
+          p("\nManassi Warriors health is now " + ManassiWarrior.getCurrentHealth());
           break;
       }
       p("\nManassi Warrior uses stab dealing " + ManassiWarrior.attack(FallenKnight) + " damage.");
-      p("\nFallen Knights health is now " + FallenKnight.currentHealth);
-
-      if (ManassiWarrior.currentHealth <= 0) {
-        p("Manassi WArrior is dead.");
+      while (ManassiWarrior.isAlive == false) {
+        p("\nManassi Warrior's head was slashed off. ");
         break;
       }
-    }
-    return;
+    } while (ManassiWarrior.isAlive() == true);
   }
 }
