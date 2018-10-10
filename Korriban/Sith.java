@@ -27,11 +27,18 @@ public class Sith {
     int r = ran.nextInt(10);
     if (r >= 8)
       attack *= 2;
-    if (fallenKnight.currentHealth > attack) {
-      fallenKnight.currentHealth = fallenKnight.currentHealth - attack;
-    } else if (fallenKnight.health > attack) {
+    if (fallenKnight.health > attack) {
       fallenKnight.currentHealth = (fallenKnight.health - attack);
-    } else {
+      fallenKnight.health -= attack;
+      fallenKnight.isAlive = true;
+    } else if (fallenKnight.currentHealth > attack) {
+      fallenKnight.currentHealth = fallenKnight.currentHealth - attack;
+      fallenKnight.currentHealth -= attack;
+      fallenKnight.isAlive = true;
+    }
+    if (fallenKnight.currentHealth <= attack) {
+      fallenKnight.currentHealth -= attack;
+      fallenKnight.isAlive = false;
     }
     return attack;
   }
@@ -45,10 +52,18 @@ public class Sith {
     int r = ran.nextInt(21);
     if (r >= 20)
       savageStrike *= 2;
-    if (fallenKnight.setCurrentHealth() > savageStrike) {
-      fallenKnight.currentHealth = fallenKnight.currentHealth - savageStrike;
-    } else if (fallenKnight.health > savageStrike) {
+    if (fallenKnight.health > savageStrike) {
       fallenKnight.currentHealth = (fallenKnight.health - savageStrike);
+      fallenKnight.health -= savageStrike;
+      fallenKnight.isAlive = true;
+    } else if (fallenKnight.getCurrentHealth() > savageStrike) {
+      fallenKnight.currentHealth = fallenKnight.currentHealth - savageStrike;
+      fallenKnight.currentHealth -= savageStrike;
+      fallenKnight.isAlive = true;
+    }
+    if (fallenKnight.getCurrentHealth() <= savageStrike) {
+      fallenKnight.currentHealth -= savageStrike;
+      fallenKnight.isAlive = false;
     }
     return savageStrike;
   }
@@ -63,10 +78,10 @@ public class Sith {
     int r = ran.nextInt(31);
     if (r >= 30)
       forceScream *= 2;
-    if (fallenKnight.setCurrentHealth() > forceScream) {
-      fallenKnight.currentHealth = fallenKnight.currentHealth - forceScream;
-    } else if (fallenKnight.setCurrentHealth() > forceScream) {
+    if (fallenKnight.getCurrentHealth() > forceScream) {
       fallenKnight.currentHealth = (fallenKnight.health - forceScream);
+    } else if (fallenKnight.getCurrentHealth() > forceScream) {
+      fallenKnight.currentHealth = fallenKnight.currentHealth - forceScream;
     }
     return forceScream;
   }
@@ -86,7 +101,7 @@ public class Sith {
   public boolean isAlive() {
     if (currentHealth > 0) {
       return true;
-    } else if (currentHealth < 0) {
+    } else if (currentHealth <= 0) {
       return false;
     }
     return isAlive;

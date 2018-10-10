@@ -38,18 +38,35 @@ public class GameLogic {
       switch (choice) {
         case '1':
           p("\nFallen Knight uses slash dealing " + FallenKnight.attack(ManassiWarrior) + " damage.");
-          p("\nManassi Warriors health is now " + ManassiWarrior.getCurrentHealth());
+          p("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
           break;
         case '2':
           p("\nFallen Knight uses Force Push dealing " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
-          p("\nManassi Warriors health is now " + ManassiWarrior.getCurrentHealth());
+          p("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
           break;
       }
-      p("\nManassi Warrior uses stab dealing " + ManassiWarrior.attack(FallenKnight) + " damage.");
-      while (ManassiWarrior.isAlive == false) {
-        p("\nManassi Warrior's head was slashed off. ");
-        break;
+
+      while (ManassiWarrior.isAlive == true) {
+        if (choice == '1') {
+          p("\nManassiWarrior uses Savage Strike. " + ManassiWarrior.savageStrike(FallenKnight) + " damage");
+          p("\nFallen Knights health is " + FallenKnight.currentHealth);
+          break;
+        } else if (choice == '2') {
+          p("\nManassi Warrior uses attack " + ManassiWarrior.attack(FallenKnight) + " damage.");
+          p("\nFallen Knights health is " + FallenKnight.currentHealth);
+          break;
+        }
       }
-    } while (ManassiWarrior.isAlive() == true);
+
+      while (ManassiWarrior.isAlive == false) {
+        if (choice == '1') {
+          p("\nManassi Warrior's head was slashed off. ");
+          break;
+        } else if (choice == '2') {
+          p("\nManassi Warrior's body was thrown at a wall snaping his neck. ");
+          break;
+        }
+      }
+    } while (ManassiWarrior.isAlive == true);
   }
 }

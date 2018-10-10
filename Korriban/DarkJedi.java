@@ -13,10 +13,6 @@ import java.util.Random;
 public class DarkJedi {
   Random ran = new Random();
   int health = 80;
-  int attack = 70;
-  int forcePush;
-  int combustion;
-  int defense = 80;
   int currentHealth;
   boolean isAlive;
 
@@ -25,12 +21,14 @@ public class DarkJedi {
    */
 
   public int attack(Sith manassiWarrior) {
-    int attack = ran.nextInt(40) + 10;
+    int attack = ran.nextInt(9) + 1;
     if (manassiWarrior.health > attack) {
       manassiWarrior.currentHealth = (manassiWarrior.health - attack);
+      manassiWarrior.health -= attack;
       manassiWarrior.isAlive = true;
     } else if (manassiWarrior.getCurrentHealth() > attack) {
       manassiWarrior.currentHealth = (manassiWarrior.currentHealth - attack);
+      manassiWarrior.currentHealth -= attack;
       manassiWarrior.isAlive = true;
     }
     if (manassiWarrior.getCurrentHealth() <= attack) {
@@ -47,12 +45,14 @@ public class DarkJedi {
    * @return
    */
   public int forcePush(Sith manassiWarrior) {
-    int forcePush = ran.nextInt(25) + 1;
+    int forcePush = ran.nextInt(25) + 10;
     if (manassiWarrior.health > forcePush) {
       manassiWarrior.currentHealth = (manassiWarrior.health - forcePush);
+      manassiWarrior.health -= forcePush;
       manassiWarrior.isAlive = true;
     } else if (manassiWarrior.getCurrentHealth() > forcePush) {
       manassiWarrior.currentHealth = (manassiWarrior.currentHealth - forcePush);
+      manassiWarrior.currentHealth -= forcePush;
       manassiWarrior.isAlive = true;
     }
     if (manassiWarrior.getCurrentHealth() <= forcePush) {
@@ -62,21 +62,17 @@ public class DarkJedi {
     return forcePush;
   }
 
-  public int setHealth() {
-    return health = 80;
-  }
-
   public boolean isAlive() {
     if (currentHealth > 0) {
       return true;
-    } else if (currentHealth < 0) {
+    } else if (currentHealth <= 0) {
       return false;
     }
     return isAlive;
 
   }
 
-  public int setCurrentHealth() {
+  public int getCurrentHealth() {
     return currentHealth;
   }
 }
