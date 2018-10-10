@@ -44,20 +44,26 @@ public class GameLogic {
           p("\nFallen Knight uses Force Push dealing " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
           p("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
           break;
+        case '3':
+          p("\nFallen Knight uses Combustion dealing " + FallenKnight.combustion(ManassiWarrior) + " damage.");
+          p("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
       }
 
       while (ManassiWarrior.isAlive == true) {
         if (choice == '1') {
-          p("\nManassiWarrior uses Savage Strike. " + ManassiWarrior.savageStrike(FallenKnight) + " damage");
+          p("\nManassiWarrior uses Savage Strike dealing " + ManassiWarrior.savageStrike(FallenKnight) + " damage");
           p("\nFallen Knights health is " + FallenKnight.currentHealth);
           break;
         } else if (choice == '2') {
-          p("\nManassi Warrior uses attack " + ManassiWarrior.attack(FallenKnight) + " damage.");
+          p("\nManassi Warrior uses attack dealing " + ManassiWarrior.attack(FallenKnight) + " damage.");
+          p("\nFallen Knights health is " + FallenKnight.currentHealth);
+          break;
+        } else if (choice == '3') {
+          p("\nManassi Warrior uses Force Scream dealing" + ManassiWarrior.forceScream(FallenKnight) + " damage.");
           p("\nFallen Knights health is " + FallenKnight.currentHealth);
           break;
         }
       }
-
       while (ManassiWarrior.isAlive == false) {
         if (choice == '1') {
           p("\nManassi Warrior's head was slashed off. ");
@@ -65,8 +71,13 @@ public class GameLogic {
         } else if (choice == '2') {
           p("\nManassi Warrior's body was thrown at a wall snaping his neck. ");
           break;
+        } else if (choice == '3') {
+          p("\nManassi Warrior' body catches on fire and is burnt to a crisp. ");
+          break;
         }
+
       }
+
     } while (ManassiWarrior.isAlive == true);
   }
 }

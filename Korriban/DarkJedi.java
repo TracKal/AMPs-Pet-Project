@@ -62,6 +62,24 @@ public class DarkJedi {
     return forcePush;
   }
 
+  public int combustion(Sith manassiWarrior) {
+    int combustion = ran.nextInt(30) + 10;
+    if (manassiWarrior.health > combustion) {
+      manassiWarrior.currentHealth = (manassiWarrior.health - combustion);
+      manassiWarrior.health -= combustion;
+      manassiWarrior.isAlive = true;
+    } else if (manassiWarrior.getCurrentHealth() > combustion) {
+      manassiWarrior.currentHealth = (manassiWarrior.currentHealth - combustion);
+      manassiWarrior.currentHealth -= combustion;
+      manassiWarrior.isAlive = true;
+    }
+    if (manassiWarrior.getCurrentHealth() <= combustion) {
+      manassiWarrior.currentHealth -= combustion;
+      manassiWarrior.isAlive = false;
+    }
+    return combustion;
+  }
+
   public boolean isAlive() {
     if (currentHealth > 0) {
       return true;

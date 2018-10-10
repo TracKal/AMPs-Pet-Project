@@ -24,9 +24,6 @@ public class Sith {
    */
   public int attack(DarkJedi fallenKnight) {
     int attack = ran.nextInt(8) + 1;
-    int r = ran.nextInt(10);
-    if (r >= 8)
-      attack *= 2;
     if (fallenKnight.health > attack) {
       fallenKnight.currentHealth = (fallenKnight.health - attack);
       fallenKnight.health -= attack;
@@ -49,9 +46,6 @@ public class Sith {
    */
   public int savageStrike(DarkJedi fallenKnight) {
     int savageStrike = ran.nextInt(20) + 10;
-    int r = ran.nextInt(21);
-    if (r >= 20)
-      savageStrike *= 2;
     if (fallenKnight.health > savageStrike) {
       fallenKnight.currentHealth = (fallenKnight.health - savageStrike);
       fallenKnight.health -= savageStrike;
@@ -75,13 +69,18 @@ public class Sith {
    */
   public int forceScream(DarkJedi fallenKnight) {
     int forceScream = ran.nextInt(30) + 20;
-    int r = ran.nextInt(31);
-    if (r >= 30)
-      forceScream *= 2;
-    if (fallenKnight.getCurrentHealth() > forceScream) {
+    if (fallenKnight.health > forceScream) {
       fallenKnight.currentHealth = (fallenKnight.health - forceScream);
+      fallenKnight.health -= forceScream;
+      fallenKnight.isAlive = true;
     } else if (fallenKnight.getCurrentHealth() > forceScream) {
       fallenKnight.currentHealth = fallenKnight.currentHealth - forceScream;
+      fallenKnight.currentHealth -= forceScream;
+      fallenKnight.isAlive = true;
+    }
+    if (fallenKnight.getCurrentHealth() <= forceScream) {
+      fallenKnight.currentHealth -= forceScream;
+      fallenKnight.isAlive = false;
     }
     return forceScream;
   }
