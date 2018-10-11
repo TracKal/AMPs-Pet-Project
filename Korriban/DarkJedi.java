@@ -31,12 +31,7 @@ public class DarkJedi {
       manassiWarrior.currentHealth = (manassiWarrior.health - attack);
       manassiWarrior.health -= attack;
       manassiWarrior.isAlive = true;
-    } else if (manassiWarrior.getCurrentHealth() > attack) {
-      manassiWarrior.currentHealth = (manassiWarrior.currentHealth - attack);
-      manassiWarrior.currentHealth -= attack;
-      manassiWarrior.isAlive = true;
-    }
-    if (manassiWarrior.getCurrentHealth() <= attack) {
+    } else if (manassiWarrior.getCurrentHealth() <= attack) {
       manassiWarrior.currentHealth -= attack;
       manassiWarrior.isAlive = false;
     }
@@ -58,12 +53,7 @@ public class DarkJedi {
       manassiWarrior.currentHealth = (manassiWarrior.health - forcePush);
       manassiWarrior.health -= forcePush;
       manassiWarrior.isAlive = true;
-    } else if (manassiWarrior.getCurrentHealth() > forcePush) {
-      manassiWarrior.currentHealth = (manassiWarrior.currentHealth - forcePush);
-      manassiWarrior.currentHealth -= forcePush;
-      manassiWarrior.isAlive = true;
-    }
-    if (manassiWarrior.getCurrentHealth() <= forcePush) {
+    } else if (manassiWarrior.getCurrentHealth() <= forcePush) {
       manassiWarrior.currentHealth -= forcePush;
       manassiWarrior.isAlive = false;
     }
@@ -83,16 +73,25 @@ public class DarkJedi {
       manassiWarrior.currentHealth = (manassiWarrior.health - combustion);
       manassiWarrior.health -= combustion;
       manassiWarrior.isAlive = true;
-    } else if (manassiWarrior.getCurrentHealth() > combustion) {
-      manassiWarrior.currentHealth = (manassiWarrior.currentHealth - combustion);
-      manassiWarrior.currentHealth -= combustion;
-      manassiWarrior.isAlive = true;
-    }
-    if (manassiWarrior.getCurrentHealth() <= combustion) {
+    } else if (manassiWarrior.getCurrentHealth() <= combustion) {
       manassiWarrior.currentHealth -= combustion;
       manassiWarrior.isAlive = false;
     }
     return combustion;
+  }
+
+  public int lifeDrain(Sith manassiWarrior) {
+    int lifeDrain = ran.nextInt(15) + 10;
+    if (manassiWarrior.health > lifeDrain) {
+      manassiWarrior.currentHealth = (manassiWarrior.health - lifeDrain);
+      manassiWarrior.health -= lifeDrain;
+      manassiWarrior.isAlive = true;
+      health += lifeDrain;
+    } else if (manassiWarrior.getCurrentHealth() <= lifeDrain) {
+      manassiWarrior.currentHealth -= lifeDrain;
+      manassiWarrior.isAlive = false;
+    }
+    return lifeDrain;
   }
 
   public boolean isAlive() {
