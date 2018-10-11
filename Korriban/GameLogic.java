@@ -75,9 +75,7 @@ public class GameLogic {
           p("\nManassi Warrior' body catches on fire and is burnt to a crisp. ");
           break;
         }
-
       }
-
     } while (ManassiWarrior.isAlive == true);
   }
 }

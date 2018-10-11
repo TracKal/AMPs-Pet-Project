@@ -8,6 +8,8 @@ import java.util.Random;
  * spring the sith Hybrid will add dark force powers. This will be done later
  * on.
  * 
+ * Added a Critical for each attack. which is int r = ran.nextInt(x) if ( r >=
+ * x) x *= 2;
  */
 
 public class DarkJedi {
@@ -22,6 +24,9 @@ public class DarkJedi {
 
   public int attack(Sith manassiWarrior) {
     int attack = ran.nextInt(9) + 1;
+    int r = ran.nextInt(10);
+    if (r >= 9)
+      attack *= 2;
     if (manassiWarrior.health > attack) {
       manassiWarrior.currentHealth = (manassiWarrior.health - attack);
       manassiWarrior.health -= attack;
@@ -46,6 +51,9 @@ public class DarkJedi {
    */
   public int forcePush(Sith manassiWarrior) {
     int forcePush = ran.nextInt(25) + 10;
+    int r = ran.nextInt(25);
+    if (r >= 25)
+      forcePush *= 2;
     if (manassiWarrior.health > forcePush) {
       manassiWarrior.currentHealth = (manassiWarrior.health - forcePush);
       manassiWarrior.health -= forcePush;
@@ -62,8 +70,15 @@ public class DarkJedi {
     return forcePush;
   }
 
+  /**
+   * Combustion a darkside force move that gathers heat from the surround area and
+   * sets the object that is being heated on fire.
+   */
   public int combustion(Sith manassiWarrior) {
     int combustion = ran.nextInt(30) + 10;
+    int r = ran.nextInt(30);
+    if (r >= 30)
+      combustion *= 2;
     if (manassiWarrior.health > combustion) {
       manassiWarrior.currentHealth = (manassiWarrior.health - combustion);
       manassiWarrior.health -= combustion;
