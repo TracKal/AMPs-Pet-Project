@@ -58,7 +58,7 @@ public class Sith {
    * force can cause dramatic damage to those in it's path.
    */
   public int forceScream(DarkJedi fallenKnight) {
-    int forceScream = ran.nextInt(30) + 20;
+    int forceScream = ran.nextInt(20) + 10;
     int r = ran.nextInt(30);
     if (r >= 30)
       forceScream *= 2;
@@ -74,7 +74,7 @@ public class Sith {
   }
 
   public int energyWeb(DarkJedi fallenKnight) {
-    int energyWeb = ran.nextInt(40) + 40;
+    int energyWeb = ran.nextInt(15) + 15;
     if (fallenKnight.health > energyWeb) {
       fallenKnight.currentHealth = (fallenKnight.health - energyWeb);
       fallenKnight.health -= energyWeb;
@@ -93,7 +93,7 @@ public class Sith {
   public boolean isAlive() {
     if (currentHealth > 0) {
       return true;
-    } else if (currentHealth <= 0) {
+    } else if (currentHealth == 0) {
       return false;
     }
     return isAlive;
