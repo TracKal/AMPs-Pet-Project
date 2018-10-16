@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class Choice {
   Scanner in = new Scanner(System.in);
-  FallenKnight FallenKnight = new FallenKnight();
-  FallenHealer FallenHealer = new FallenHealer();
+  FallenKnight FK = new FallenKnight();
+  FallenHealer FH = new FallenHealer();
   Sith ManassiWarrior = new Sith();
 
   public int c1() {
 
     // Allows the program to run until condition of isAlive == false.
-    do {
+    while (true) {
 
       char choice = in.next().charAt(0);
 
-      if (choice == 1) {
+      if (choice == '1') {
         System.out.println("\nSkills that can be chosen. ");
         System.out.println("\n   1. Slash ");
         System.out.println("   2. Force Push");
@@ -27,23 +27,19 @@ public class Choice {
 
         switch (choice) {
           case '1':
-            System.out
-                .println("\nFallen Knight uses slash dealing " + FallenKnight.attack(ManassiWarrior) + " damage.");
+            System.out.println("\nFallen Knight uses slash dealing " + FK.attack(ManassiWarrior) + " damage.");
             System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
             return choice;
           case '2':
-            System.out.println(
-                "\nFallen Knight uses Force Push dealing " + FallenKnight.forcePush(ManassiWarrior) + " damage.");
+            System.out.println("\nFallen Knight uses Force Push dealing " + FK.forcePush(ManassiWarrior) + " damage.");
             System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
             break;
           case '3':
-            System.out.println(
-                "\nFallen Knight uses Combustion dealing " + FallenKnight.combustion(ManassiWarrior) + " damage.");
+            System.out.println("\nFallen Knight uses Combustion dealing " + FK.combustion(ManassiWarrior) + " damage.");
             System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
             break;
           case '4':
-            System.out.println(
-                "\nFallen Knight uses Life Drain dealing " + FallenKnight.lifeDrain(ManassiWarrior) + " damage.");
+            System.out.println("\nFallen Knight uses Life Drain dealing " + FK.lifeDrain(ManassiWarrior) + " damage.");
             System.out.println("\nManassiWarriors health is now " + ManassiWarrior.currentHealth);
             break;
         }
@@ -55,21 +51,20 @@ public class Choice {
          */
         if (ManassiWarrior.currentHealth > 0) {
           if (choice == '1') {
-            System.out.println(
-                "\nManassiWarrior uses Savage Strike dealing " + ManassiWarrior.savageStrike(FallenKnight) + " damage");
-            System.out.println("\nFallen Knights health is " + FallenKnight.currentHealth);
-          } else if (choice == '2') {
-            System.out.println(
-                "\nManassi Warrior uses Energy Web dealing " + ManassiWarrior.energyWeb(FallenKnight) + " damage.");
-            System.out.println("\nFallen Knights health is " + FallenKnight.currentHealth);
-          } else if (choice == '3') {
-            System.out.println(
-                "\nManassi Warrior uses Force Scream dealing " + ManassiWarrior.forceScream(FallenKnight) + " damage.");
-            System.out.println("\nFallen Knights health is " + FallenKnight.currentHealth);
-          } else if (choice == '4') {
             System.out
-                .println("\nManassi Warrior uses attack dealing " + ManassiWarrior.attack(FallenKnight) + " damage.");
-            System.out.println("\nFallen Knights health is now " + FallenKnight.currentHealth);
+                .println("\nManassiWarrior uses Savage Strike dealing " + ManassiWarrior.savageStrike(FK) + " damage");
+            System.out.println("\nFallen Knights health is " + FK.currentHealth);
+          } else if (choice == '2') {
+            System.out
+                .println("\nManassi Warrior uses Energy Web dealing " + ManassiWarrior.energyWeb(FK) + " damage.");
+            System.out.println("\nFallen Knights health is " + FK.currentHealth);
+          } else if (choice == '3') {
+            System.out
+                .println("\nManassi Warrior uses Force Scream dealing " + ManassiWarrior.forceScream(FK) + " damage.");
+            System.out.println("\nFallen Knights health is " + FK.currentHealth);
+          } else if (choice == '4') {
+            System.out.println("\nManassi Warrior uses attack dealing " + ManassiWarrior.attack(FK) + " damage.");
+            System.out.println("\nFallen Knights health is now " + FK.currentHealth);
           }
         }
 
@@ -103,7 +98,7 @@ public class Choice {
          * The System.exit will stop the input of new choices once the currenthealth is
          * under 0.
          */
-        if (FallenKnight.currentHealth < 0) {
+        if (FK.currentHealth < 0) {
           if (choice == '1') {
             System.out.println("\nFallen Knight was violently slashed up and left for the scavangers.");
             System.exit(0);
@@ -120,7 +115,9 @@ public class Choice {
         }
         break;
       }
-    } while (ManassiWarrior.isAlive == true);
+    }
+    while (ManassiWarrior.isAlive == true)
+      ;
     return c1();
   }
 
@@ -142,23 +139,21 @@ public class Choice {
 
         switch (choice) {
           case '1':
-            System.out
-                .println("\nFallen Healer uses slash dealing " + FallenHealer.attack(ManassiWarrior) + " damage.");
+            System.out.println("\nFallen Healer uses slash dealing " + FH.attack(ManassiWarrior) + " damage.");
             System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
             break;
           case '2':
-            System.out.println(
-                "\nFallen Healer uses Force Shock dealing " + FallenHealer.forceShock(ManassiWarrior) + " damage.");
+            System.out
+                .println("\nFallen Healer uses Force Shock dealing " + FH.forceShock(ManassiWarrior) + " damage.");
             System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
             break;
           case '3':
-            System.out.println(
-                "\nFallen Healer uses forceDrain dealing " + FallenHealer.forceDrain(ManassiWarrior) + " damage.");
+            System.out.println("\nFallen Healer uses forceDrain dealing " + FH.forceDrain(ManassiWarrior) + " damage.");
             System.out.println("\nManassi Warriors health is now " + ManassiWarrior.currentHealth);
             break;
           case '4':
-            System.out.println("\nFallen heal uses Dark Heal " + FallenHealer.heal() + " health");
-            System.out.println("\nFallen Healer health is now " + FallenHealer.currentHealth);
+            System.out.println("\nFallen heal uses Dark Heal " + FH.heal() + " health");
+            System.out.println("\nFallen Healer health is now " + FH.currentHealth);
             break;
         }
 
@@ -169,21 +164,20 @@ public class Choice {
          */
         if (ManassiWarrior.currentHealth > 0) {
           if (choice == '1') {
-            System.out.println(
-                "\nManassiWarrior uses Savage Strike dealing " + ManassiWarrior.savageStrike(FallenKnight) + " damage");
-            System.out.println("\nFallen Healers health is " + FallenHealer.currentHealth);
-          } else if (choice == '2') {
-            System.out.println(
-                "\nManassi Warrior uses Energy Web dealing " + ManassiWarrior.energyWeb(FallenKnight) + " damage.");
-            System.out.println("\nFallen Healer health is " + FallenHealer.currentHealth);
-          } else if (choice == '3') {
-            System.out.println(
-                "\nManassi Warrior uses Force Scream dealing " + ManassiWarrior.forceScream(FallenKnight) + " damage.");
-            System.out.println("\nFallen Healer health is " + FallenHealer.currentHealth);
-          } else if (choice == '4') {
             System.out
-                .println("\nManassi Warrior uses attack dealing " + ManassiWarrior.attack(FallenKnight) + " damage.");
-            System.out.println("\nFallen Healer health is now " + FallenHealer.currentHealth);
+                .println("\nManassiWarrior uses Savage Strike dealing " + ManassiWarrior.savageStrike(FK) + " damage");
+            System.out.println("\nFallen Healers health is " + FH.currentHealth);
+          } else if (choice == '2') {
+            System.out
+                .println("\nManassi Warrior uses Energy Web dealing " + ManassiWarrior.energyWeb(FK) + " damage.");
+            System.out.println("\nFallen Healer health is " + FH.currentHealth);
+          } else if (choice == '3') {
+            System.out
+                .println("\nManassi Warrior uses Force Scream dealing " + ManassiWarrior.forceScream(FK) + " damage.");
+            System.out.println("\nFallen Healer health is " + FH.currentHealth);
+          } else if (choice == '4') {
+            System.out.println("\nManassi Warrior uses attack dealing " + ManassiWarrior.attack(FK) + " damage.");
+            System.out.println("\nFallen Healer health is now " + FH.currentHealth);
           }
         }
 
@@ -217,7 +211,7 @@ public class Choice {
          * The System.exit will stop the input of new choices once the currenthealth is
          * under 0.
          */
-        if (FallenKnight.currentHealth < 0) {
+        if (FH.currentHealth < 0) {
           if (choice == '1') {
             System.out.println("\nFallen Knight was violently slashed up and left for the scavangers.");
             System.exit(0);

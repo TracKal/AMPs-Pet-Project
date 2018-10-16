@@ -24,7 +24,13 @@ public class GameLogic {
     choice.c1();
     choice.c2();
 
-    return fight();
+    if (choice.c1() == fight()) {
+      choice.c1();
+    }
+    if (choice.c1() != fight()) {
+      choice.c2();
 
+    }
+    return fight();
   }
 }
