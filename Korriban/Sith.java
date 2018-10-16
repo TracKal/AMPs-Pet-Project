@@ -18,37 +18,39 @@ public class Sith {
   int currentHealth;
   boolean isAlive;
 
-  // Sith's basic attack lines 27 and 29 are are the chance for critical if attack
-  // lands on 8.
-  public int attack(DarkJedi fallenKnight) {
+  /**
+   * Sith's basic attack lines 27 and 29 are are the chance for critical if attack
+   * lands on 8.
+   */
+  public int attack(DarkJedi DJ) {
     int attack = ran.nextInt(8) + 1;
     int r = ran.nextInt(9);
     if (r >= 8)
       attack *= 2;
-    if (fallenKnight.health > attack) {
-      fallenKnight.currentHealth = (fallenKnight.health - attack);
-      fallenKnight.health -= attack;
-      fallenKnight.isAlive = true;
-    } else if (fallenKnight.currentHealth <= attack) {
-      fallenKnight.currentHealth -= attack;
-      fallenKnight.isAlive = false;
+    if (DJ.health > attack) {
+      DJ.currentHealth = (DJ.health - attack);
+      DJ.health -= attack;
+      DJ.isAlive = true;
+    } else if (DJ.currentHealth <= attack) {
+      DJ.currentHealth -= attack;
+      DJ.isAlive = false;
     }
     return attack;
   }
 
   // Savage Strike - a relentless onslaught of attacks lines.
-  public int savageStrike(DarkJedi fallenKnight) {
+  public int savageStrike(DarkJedi DJ) {
     int savageStrike = ran.nextInt(20) + 10;
     int r = ran.nextInt(20);
     if (r >= savageStrike)
       savageStrike *= 2;
-    if (fallenKnight.health > savageStrike) {
-      fallenKnight.currentHealth = (fallenKnight.health - savageStrike);
-      fallenKnight.health -= savageStrike;
-      fallenKnight.isAlive = true;
-    } else if (fallenKnight.getCurrentHealth() <= savageStrike) {
-      fallenKnight.currentHealth -= savageStrike;
-      fallenKnight.isAlive = false;
+    if (DJ.health > savageStrike) {
+      DJ.currentHealth = (DJ.health - savageStrike);
+      DJ.health -= savageStrike;
+      DJ.isAlive = true;
+    } else if (DJ.getCurrentHealth() <= savageStrike) {
+      DJ.currentHealth -= savageStrike;
+      DJ.isAlive = false;
     }
     return savageStrike;
   }
@@ -57,31 +59,31 @@ public class Sith {
    * Force Scream - a primal scream of frustration that when infused with the
    * force can cause dramatic damage to those in it's path.
    */
-  public int forceScream(DarkJedi fallenKnight) {
+  public int forceScream(DarkJedi DJ) {
     int forceScream = ran.nextInt(20) + 10;
     int r = ran.nextInt(30);
     if (r >= 30)
       forceScream *= 2;
-    if (fallenKnight.health > forceScream) {
-      fallenKnight.currentHealth = (fallenKnight.health - forceScream);
-      fallenKnight.health -= forceScream;
-      fallenKnight.isAlive = true;
-    } else if (fallenKnight.getCurrentHealth() <= forceScream) {
-      fallenKnight.currentHealth -= forceScream;
-      fallenKnight.isAlive = false;
+    if (DJ.health > forceScream) {
+      DJ.currentHealth = (DJ.health - forceScream);
+      DJ.health -= forceScream;
+      DJ.isAlive = true;
+    } else if (DJ.getCurrentHealth() <= forceScream) {
+      DJ.currentHealth -= forceScream;
+      DJ.isAlive = false;
     }
     return forceScream;
   }
 
-  public int energyWeb(DarkJedi fallenKnight) {
+  public int energyWeb(DarkJedi DJ) {
     int energyWeb = ran.nextInt(15) + 15;
-    if (fallenKnight.health > energyWeb) {
-      fallenKnight.currentHealth = (fallenKnight.health - energyWeb);
-      fallenKnight.health -= energyWeb;
-      fallenKnight.isAlive = true;
-    } else if (fallenKnight.getCurrentHealth() <= energyWeb) {
-      fallenKnight.currentHealth -= energyWeb;
-      fallenKnight.isAlive = false;
+    if (DJ.health > energyWeb) {
+      DJ.currentHealth = (DJ.health - energyWeb);
+      DJ.health -= energyWeb;
+      DJ.isAlive = true;
+    } else if (DJ.getCurrentHealth() <= energyWeb) {
+      DJ.currentHealth -= energyWeb;
+      DJ.isAlive = false;
     }
     return energyWeb;
   }

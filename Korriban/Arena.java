@@ -10,5 +10,6 @@ public class Arena {
 
     gl.Intro();
     gl.fight();
+
   }
 }
