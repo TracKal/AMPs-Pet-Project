@@ -48,39 +48,78 @@ public class GameLogic {
           if (choice == '1') {
             System.out.println("\nFallen Knight uses slash dealing " + FK.attack(MW) + " damage.");
             System.out.println("\nManassi Warriors health is now " + MW.currentHealth);
+            System.out.println("\nManassiWarrior uses Savage Strike dealing " + MW.savageStrike(FK) + " damage");
+            System.out.println("\nFallen Knights health is " + FK.currentHealth);
+
           } else if (choice == '2') {
             System.out.println("\nFallen Healer uses slash dealing " + FH.attack(MW) + " damage.");
             System.out.println("\nManassi Warriors health is now " + MW.currentHealth);
+            System.out.println("\nManassiWarrior uses Savage Strike dealing " + MW.savageStrike(FH) + " damage");
+            System.out.println("\nFallen Healers health is " + FH.currentHealth);
+
           }
           break;
         case 'b':
           if (choice == '1') {
             System.out.println("\nFallen Knight uses Force Push dealing " + FK.forcePush(MW) + " damage.");
             System.out.println("\nManassi Warriors health is now " + MW.currentHealth);
+            System.out.println("\nManassi Warrior uses Energy Web dealing " + MW.energyWeb(FK) + " damage.");
+            System.out.println("\nFallen Knights health is " + FK.currentHealth);
+
           } else if (choice == '2') {
             System.out.println("\nFallen Healer uses Force Shock dealing " + FH.forceShock(MW) + " damage.");
             System.out.println("\nManassi Warriors health is now " + MW.currentHealth);
+            System.out.println("\nManassi Warrior uses Energy Web dealing " + MW.energyWeb(FH) + " damage.");
+            System.out.println("\nFallen Healer health is " + FH.currentHealth);
+
           }
           break;
         case 'c':
           if (choice == '1') {
             System.out.println("\nFallen Knight uses Combustion dealing " + FK.combustion(MW) + " damage.");
             System.out.println("\nManassi Warriors health is now " + MW.currentHealth);
+            System.out.println("\nManassi Warrior uses Force Scream dealing " + MW.forceScream(FK) + " damage.");
+            System.out.println("\nFallen Knights health is " + FK.currentHealth);
           } else if (choice == '2') {
             System.out.println("\nFallen Healer uses forceDrain dealing " + FH.forceDrain(MW) + " damage.");
             System.out.println("\nManassi Warriors health is now " + MW.currentHealth);
+            System.out.println("\nManassi Warrior uses Force Scream dealing " + MW.forceScream(FH) + " damage.");
+            System.out.println("\nFallen Healer health is " + FH.currentHealth);
           }
           break;
         case 'd':
           if (choice == '1') {
             System.out.println("\nFallen Knight uses Life Drain dealing " + FK.lifeDrain(MW) + " damage.");
             System.out.println("\nManassiWarriors health is now " + MW.currentHealth);
+            System.out.println("\nManassi Warrior uses attack dealing " + MW.attack(FK) + " damage.");
+            System.out.println("\nFallen Knights health is now " + FK.currentHealth);
           } else if (choice == '2') {
             System.out.println("\nFallen heal uses Dark Heal " + FH.heal() + " health");
             System.out.println("\nFallen Healer health is now " + FH.currentHealth);
+            System.out.println("\nManassi Warrior uses attack dealing " + MW.attack(FH) + " damage.");
+            System.out.println("\nFallen Healer health is now " + FH.currentHealth);
+
           }
-          break;
       }
+
+      if (MW.currentHealth < 0) {
+        if (choice == '1' && choice == 'a') {
+          System.out.println("\nManassi Warrior's head was slashed off. ");
+          System.exit(0);
+        } else if (choice == '1' && choice == 'b') {
+          System.out.println("\nManassi Warrior's body was thrown at a wall snaping his neck. ");
+          System.exit(0);
+        } else if (choice == '1' && choice == 'c') {
+          System.out.println("\nManassi Warrior' body catches on fire and is burnt to a crisp. ");
+          System.exit(0);
+        } else if (choice == '1' && choice == 'd') {
+          System.out.println(
+              "\nManassi Warrior's skin and organs wither to wrinkles were " + "you see can see the skeleton. ");
+          System.exit(0);
+        }
+
+      }
+
     } while (MW.isAlive == true);
   }
 }
